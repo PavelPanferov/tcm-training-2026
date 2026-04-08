@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ИИ-агенты и автоматизация | TashkentCity Mall</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Bebas Neue', 'sans-serif'],
+            },
+            colors: {
+              wd: {
+                purple: '#7C3AED',
+                pink: '#E91E8C',
+                lime: '#C8F50A',
+                limeLight: '#D4F72A',
+                dark: '#1A1A1A',
+                gray: '#6B7280',
+                muted: '#9CA3AF',
+                light: '#F5F5F5',
+              }
+            },
+          }
+        }
+      }
+    </script>
+    <style>
+      @font-face {
+        font-family: 'Bebas Neue';
+        src: url('BebasNeueCyrillic.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      body {
+        background-color: #FFFFFF;
+        color: #1A1A1A;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: #f5f5f5; }
+      ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 2px; }
+
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(24px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes fadeInLeft {
+        from { opacity: 0; transform: translateX(-24px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes fadeInRight {
+        from { opacity: 0; transform: translateX(24px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes scaleIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+      }
+
+      .anim-fade-up { animation: fadeInUp 0.5s ease-out both; }
+      .anim-fade-up-d1 { animation: fadeInUp 0.5s ease-out 0.1s both; }
+      .anim-fade-up-d2 { animation: fadeInUp 0.5s ease-out 0.2s both; }
+      .anim-fade-up-d3 { animation: fadeInUp 0.5s ease-out 0.3s both; }
+      .anim-fade-up-d4 { animation: fadeInUp 0.5s ease-out 0.4s both; }
+      .anim-fade-up-d5 { animation: fadeInUp 0.5s ease-out 0.5s both; }
+      .anim-fade-up-d6 { animation: fadeInUp 0.5s ease-out 0.6s both; }
+      .anim-fade-left { animation: fadeInLeft 0.5s ease-out both; }
+      .anim-fade-right { animation: fadeInRight 0.5s ease-out 0.15s both; }
+      .anim-scale { animation: scaleIn 0.4s ease-out both; }
+
+      .lime-gradient-bg {
+        background: linear-gradient(135deg, #C8F50A 0%, #A3E635 40%, #D4F72A 100%);
+        position: relative;
+      }
+      .lime-gradient-bg::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3"/></filter><rect width="400" height="400" filter="url(%23n)" opacity="0.08"/></svg>');
+        background-size: 200px;
+        pointer-events: none;
+      }
+
+      .dark-slide { background: #1A1A1A; color: #FFFFFF; }
+
+      .accent-line {
+        background: linear-gradient(90deg, #C8F50A, #A3E635);
+        height: 3px;
+      }
+
+      .code-block {
+        background: #1E1E2E;
+        border: 1px solid #313244;
+        border-radius: 16px;
+        font-family: 'SF Mono', 'Fira Code', monospace;
+        color: #CDD6F4;
+      }
+      .code-comment { color: #6C7086; }
+      .code-keyword { color: #CBA6F7; }
+      .code-string { color: #A6E3A1; }
+
+      .terminal {
+        background: #0D0D0D;
+        border: 1px solid #333;
+        border-radius: 16px;
+        font-family: 'SF Mono', 'Fira Code', monospace;
+      }
+      .terminal-header {
+        background: #1A1A1A;
+        border-bottom: 1px solid #333;
+        border-radius: 16px 16px 0 0;
+        padding: 10px 14px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .terminal-dot { width: 11px; height: 11px; border-radius: 50%; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
