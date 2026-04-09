@@ -7,10 +7,10 @@ import {
   ArrowRight, CheckCircle2, MessageSquare, FileText,
   Calendar, Globe, Database, Sparkles,
   Monitor, Coffee, Table2, TrendingUp,
-  BookOpen, Lightbulb, Bot, Layers
+  BookOpen, Lightbulb, Bot, Layers, Users, Target
 } from 'lucide-react';
 
-const TOTAL = 15;
+const TOTAL = 16;
 
 /* ═══════════════════════════════════════════════════════════
    SLIDE 1: Title
@@ -41,7 +41,76 @@ const SlideTitle: React.FC<SlideProps> = ({ isActive }) => (
 );
 
 /* ═══════════════════════════════════════════════════════════
-   SLIDE 2: Зачем это вам
+   SLIDE 2: Давайте знакомиться
+   ═══════════════════════════════════════════════════════════ */
+const SlideIntro: React.FC<SlideProps> = ({ isActive }) => (
+  <div className="h-full flex flex-col px-14 md:px-20 pb-20 pt-10 bg-white">
+    {isActive && (
+      <>
+        <SlideHeader tag="Знакомство" slideNum={2} total={TOTAL} />
+        <SectionTitle className="mb-8 anim-fade-up">Давайте<br/>знакомиться</SectionTitle>
+
+        <div className="flex gap-10 flex-1">
+          {/* Left: Photo + Info */}
+          <div className="w-[340px] flex flex-col flex-shrink-0 anim-fade-left">
+            <div className="rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/10 w-[280px] h-[320px] relative mx-auto">
+              <img src={`${import.meta.env.BASE_URL}pavel-photo.jpg`} alt="Павел Панферов" className="w-full h-full object-cover object-top" />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-5">
+                <h3 className="text-2xl font-bold text-white">Павел Панферов</h3>
+                <p className="text-sm text-white/80 font-bold mt-1">CDTO WE DIGITAL</p>
+              </div>
+            </div>
+            <div className="mt-5 space-y-3">
+              {[
+                "CDTO We Digital — топ-1 агентство ЦА",
+                "Сооснователь AI Lab",
+                "Тренер ALPHA по AI",
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 text-lg text-wd-gray">
+                  <ArrowRight size={18} className="text-wd-dark flex-shrink-0" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right: Audience interaction */}
+          <div className="flex-1 flex flex-col gap-6 anim-fade-right">
+            <Card className="bg-wd-lime/15 border-wd-lime/30 flex-shrink-0">
+              <div className="flex items-center gap-3 mb-2">
+                <Target size={24} className="text-wd-dark" />
+                <h3 className="text-xl font-bold text-wd-dark">Цель на сегодня</h3>
+              </div>
+              <p className="text-lg text-wd-gray leading-relaxed">Понять разницу между AI-чатом и AI-агентом. Научиться использовать агентов для автоматизации рабочих задач.</p>
+            </Card>
+
+            <Card className="bg-violet-50 border-violet-200 flex-1 flex flex-col">
+              <div className="flex items-center gap-3 mb-5">
+                <Users size={24} className="text-violet-600" />
+                <h3 className="text-xl font-bold text-wd-dark">А теперь про вас</h3>
+              </div>
+              <div className="space-y-4 flex-1">
+                {[
+                  "Кто вы? Чем занимаетесь?",
+                  "Какими AI-инструментами пользуетесь?",
+                  "Что хотите автоматизировать первым?",
+                ].map((q, i) => (
+                  <div key={i} className="flex items-start gap-4 p-5 bg-white rounded-xl border border-violet-100">
+                    <div className="w-9 h-9 rounded-full bg-violet-100 flex items-center justify-center text-lg text-violet-600 font-bold flex-shrink-0">{i+1}</div>
+                    <p className="text-lg text-wd-dark font-medium mt-1">{q}</p>
+                  </div>
+                ))}
+              </div>
+            </Card>
+          </div>
+        </div>
+      </>
+    )}
+  </div>
+);
+
+/* ═══════════════════════════════════════════════════════════
+   SLIDE 3: Зачем это вам
    ═══════════════════════════════════════════════════════════ */
 const SlideWhy: React.FC<SlideProps> = ({ isActive }) => (
   <div className="h-full flex flex-col justify-center px-14 md:px-20 pb-20 bg-white">
@@ -678,7 +747,8 @@ const SlideConsulting: React.FC<SlideProps> = ({ isActive }) => (
    ═══════════════════════════════════════════════════════════ */
 export const ALL_SLIDES: React.FC<SlideProps>[] = [
   SlideTitle,       // 1
-  SlideWhy,         // 2
+  SlideIntro,       // 2
+  SlideWhy,         // 3
   SlideChatVsAgent, // 3
   SlideAgentPowers, // 4
   SlideClaudeMd,    // 5
