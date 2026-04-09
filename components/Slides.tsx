@@ -62,7 +62,7 @@ const SlideIntro: React.FC<SlideProps> = ({ isActive }) => (
             </div>
             <div className="mt-5 space-y-3">
               {[
-                "CDTO We Digital — топ-1 агентство ЦА",
+                "CDTO We Digital — Future Marketing Agency",
                 "Сооснователь AI Lab",
                 "Тренер ALPHA по AI",
               ].map((item, i) => (
